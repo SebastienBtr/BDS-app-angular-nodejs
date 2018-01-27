@@ -1,22 +1,12 @@
 <div class="col-md-6 offset-md-3">
 
-  <div class="white">
-    <h1 class="text-center margin-top-20">You have money and you want to know what you can buy with ?</h1>
-    <form class="margin-top-50" [formGroup]="priceForm">
-      <div class="form-group">
-        <input class="form-control" type="text" formControlName="price" placeholder="Select your price">
-      </div>
-    </form>
-  </div>
+  <div *ngIf="orders.length > 0; else empty">
 
-  <div *ngIf="productsSelected.length > 0; else empty">
-    <div class="white">
-      <h2 class="text-center margin-top-50">With ${{ priceSelected}} you can buy</h2>
-    </div>
     <ul class="list-group">
-      <li class="list-group-item margin-top-20 no-padding product-card" *ngFor="let product of productsSelected">
+      <li class="list-group-item" *ngFor="let order of orders">
 
-        <div class="col-md-12 no-padding">
+        <div>{{ order | json }}</div>
+        <!--<div class="col-md-12 no-padding">
           <div class="row">
             <div class="col-sm-3">
               <img class="product-picture" src="{{ product.imageUrl }}">
@@ -29,7 +19,7 @@
               <ng-template #notPlurial><h4 >{{ product.name }}</h4></ng-template>
             </div>
           </div>
-        </div>
+        </div>-->
 
 
       </li>
@@ -40,8 +30,7 @@
     <div class="row margin-top-50">
       <div class="col-md-8 offset-md-2 text-center">
         <div class="content">
-          <p class="text-muted">Sorry...</p>
-          <p class="text-muted">you don't have enough money to buy something</p>
+          <p class="text-muted">Aucune commande</p>
         </div>
       </div>
     </div>

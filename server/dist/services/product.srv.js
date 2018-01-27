@@ -31,4 +31,4 @@ module.exports.findById = function (id, success, error) {
         }
     });
 };
-//# sourceMappingURL=product.srv.js.map
+//# sourceMappingURL=order.srv.js.map

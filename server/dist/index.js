@@ -6,7 +6,7 @@ var dbParams = conf.get('db');
 var db = require('./db.js');
 var mysql = require('mysql');
 
-var productController = require('./controllers/product.ctrl.js');
+var productController = require('./controllers/order.ctrl.js');
 
 // Add headers
 app.use(function (req, res, next) {

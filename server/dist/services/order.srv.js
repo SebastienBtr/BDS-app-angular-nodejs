@@ -1,14 +1,15 @@
-let db = require('../db.js');
+'use strict';
 
-module.exports.findAll = (success, error) => {
+var db = require('../db.js');
 
-    let query = 'SELECT * FROM product ORDER BY price';
+module.exports.findAll = function (success, error) {
 
-    db.connection.query(query, (err, rows) => {
+    var query = 'SELECT * FROM alloOrder ORDER BY created_at';
+
+    db.connection.query(query, function (err, rows) {
 
         if (!err) {
             success(rows);
-
         } else {
             console.error(err);
             error(err);
@@ -16,7 +17,7 @@ module.exports.findAll = (success, error) => {
     });
 };
 
-module.exports.findById = (id, success, error) => {
+/*module.exports.findById = (id, success, error) => {
 
     let query = 'SELECT * FROM product WHERE id = ? ORDER BY price';
 
@@ -30,5 +31,5 @@ module.exports.findById = (id, success, error) => {
             error(err);
         }
     });
-};
-
+};*/
+//# sourceMappingURL=order.srv.js.map

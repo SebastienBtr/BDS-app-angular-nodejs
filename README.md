@@ -1,11 +1,9 @@
-# what can I buy with
-
-## Description
+# BDS app
 
 ## Installation
 
 * You need NodeJs (min 4.2.6)
-* Go into client/whatCanIBuyWith and server/ and run npm install
+* Go into client/bds-app and server/ and run npm install
 
 ##### Other specifications for the server (server/)
 

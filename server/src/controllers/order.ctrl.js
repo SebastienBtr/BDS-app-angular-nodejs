@@ -1,22 +1,22 @@
 let express = require('express');
 let router = express.Router();
 
-let productService = require('../services/product.srv.js');
+let orderService = require('../services/order.srv.js');
 
-router.get('/products', (req, res) => {
+router.get('/orders', (req, res) => {
 
-    productService.findAll( (products) => {
-        res.send(products);
+    orderService.findAll( (orders) => {
+        res.send(orders);
 
     }, (error) => {
         console.error(error);
         res.statusCode = 401;
-        res.send({ errorCode: 'Error SQL when searching products' });
+        res.send({ errorCode: 'Error SQL when searching orders' });
     });
 
 });
 
-router.get('/product/:id', (req, res) => {
+/*router.get('/product/:id', (req, res) => {
 
     let id = req.params.id;
 
@@ -29,7 +29,7 @@ router.get('/product/:id', (req, res) => {
         res.send({ errorCode: 'Error SQL when searching the product' });
     });
 
-});
+});*/
 
 
 module.exports = router;

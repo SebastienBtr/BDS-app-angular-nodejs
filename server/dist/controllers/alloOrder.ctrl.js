@@ -3,12 +3,12 @@
 var express = require('express');
 var router = express.Router();
 
-var productService = require('../services/product.srv.js');
+var productService = require('../services/order.srv.js');
 
 router.get('/orders', function (req, res) {
 
-    productService.findAll(function (products) {
-        res.send(products);
+    orderService.findAll(function (orders) {
+        res.send(orders);
     }, function (error) {
         console.error(error);
         res.statusCode = 401;
@@ -16,18 +16,20 @@ router.get('/orders', function (req, res) {
     });
 });
 
-router.get('/product/:id', function (req, res) {
+/*router.get('/product/:id', (req, res) => {
 
-    var id = req.params.id;
+    let id = req.params.id;
 
-    productService.findById(id, function (product) {
+    productService.findById(id, (product) => {
         res.send(product);
-    }, function (error) {
+
+    }, (error) => {
         console.error(error);
         res.statusCode = 401;
         res.send({ errorCode: 'Error SQL when searching the product' });
     });
-});
+
+});*/
 
 module.exports = router;
-//# sourceMappingURL=order.ctrl.js.map
+//# sourceMappingURL=alloOrder.ctrl.js.map

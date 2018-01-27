@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from "./api.service";
 
 @Injectable()
-export class ProductService {
+export class OrdersService {
 
   prefix : string = "/api";
   domain : string = "http://localhost:3000";
@@ -12,7 +12,7 @@ export class ProductService {
   constructor(private apiService: ApiService  ) {
   }
 
-  getProducts() {
-    return this.apiService.get(this.domain+this.prefix+"/products");
+  getOrders() {
+    return this.apiService.get(this.domain+this.prefix+"/orders");
   }
 }

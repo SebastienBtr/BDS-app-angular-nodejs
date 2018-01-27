@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './components/products/products.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 import { ApiService } from "./services/api.service";
 
@@ -13,7 +13,7 @@ import { ApiService } from "./services/api.service";
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
