@@ -6,7 +6,7 @@ import { ApiService } from "./api.service";
 export class OrdersService {
 
   prefix : string = "/api";
-  domain : string = "http://localhost:3000";
+  domain : string = "http://51.15.207.216:3000";
   //TODO add domain in a config file and import it
 
   constructor(private apiService: ApiService  ) {
