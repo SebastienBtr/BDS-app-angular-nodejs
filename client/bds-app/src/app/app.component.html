@@ -1,7 +1,27 @@
-<div class="content">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <a class="navbar-brand" href="#">BDS Name</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/orders" routerLinkActive="active">Commandes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/allos" routerLinkActive="active">Allos</a>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/stats" routerLinkActive="active">Stats</a>
+      </li>-->
+    </ul>
+  </div>
+</nav>
+
+<div class="content margin-top-30">
   <div class="container-fluid">
 
-    <app-orders></app-orders>
+    <router-outlet></router-outlet>
 
   </div>
 </div>

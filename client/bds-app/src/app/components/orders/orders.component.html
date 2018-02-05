@@ -1,42 +1,68 @@
-<div class="col-md-6 offset-md-3">
-
-  <div *ngIf="orders.length > 0; else empty">
-
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let order of orders">
-
-        <div>{{ order | json }}</div>
-        <!--<div class="col-md-12 no-padding">
-          <div class="row">
-            <div class="col-sm-3">
-              <img class="product-picture" src="{{ product.imageUrl }}">
-            </div>
-            <div class="col-sm-9 text-center margin-top-20">
-              <h4><strong>{{ (priceSelected / product.price) | number : '1.0-0' }}</strong></h4>
-              <div *ngIf="(priceSelected / product.price) >= 2; else notPlurial">
-                <h4>{{ product.plurialName }}</h4>
-              </div>
-              <ng-template #notPlurial><h4 >{{ product.name }}</h4></ng-template>
-            </div>
-          </div>
-        </div>-->
-
-
-      </li>
-    </ul>
-  </div>
-
-  <ng-template #empty>
-    <div class="row margin-top-50">
-      <div class="col-md-8 offset-md-2 text-center">
-        <div class="content">
-          <p class="text-muted">Aucune commande</p>
+<div class="col-12 no-padding">
+  <div class="row">
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+        {{ currentAlloName }}
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item pointer" (click)="allOrders()">Toutes</a>
+        <div *ngFor="let allo of allos">
+          <a class="dropdown-item pointer" (click)="alloChange(allo.id,allo.name)">{{ allo.name }}</a>
         </div>
       </div>
     </div>
-  </ng-template>
+  </div>
 
 </div>
+<div class="col-12 no-padding">
+  <div *ngIf="!orders || orders.length > 0; else empty">
+    <div class="row text-center bg-white order vertical-center" *ngFor="let order of orders">
+
+      <div class="col-1">
+        <button class="btn btn-sm btn-checkbox" (click)="updateOrder(order.id,order.inProgress)"
+                [ngStyle]="{'background-color': order.inProgress && '#37B581'}"
+                data-toggle="tooltip" data-placement="bottom" title="En cours">
+          <i class="fas fa-check"></i>
+        </button>
+      </div>
+      <div class="col-3">
+        <p *ngIf="!allSelected">{{ order.quantity }} {{ order.specification }}</p>
+        <p *ngIf="allSelected">{{ order.quantity }} {{ order.name }} {{ order.specification }}</p>
+      </div>
+      <div class="col-3">
+        <p>{{ order.studentName }}</p>
+      </div>
+      <div class="col-3">
+        <p>{{ order.addresse }}</p>
+      </div>
+      <div class="col-1 " (click)="removeOrder(order.id)" data-toggle="tooltip" data-placement="bottom" title="Supprimer">
+        <i class="far fa-trash-alt red pointer" ></i>
+      </div>
+
+    </div>
+  </div>
+
+  <ng-template #empty>
+    <div class="row text-center bg-white">
+      <div class="col-8 offset-2 margin-top-20">
+        <h3 class="text-muted"><i class="far fa-frown"></i></h3>
+        <p class="text-muted">Aucune commande</p>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<div class="add-button text-white">
+  <h3>
+    <a class="nav-link" href="#" routerLink="/add-order" routerLinkActive="active">
+      <i class="fas fa-plus"></i>
+    </a>
+  </h3>
+</div>
+
+
+
 
 
 

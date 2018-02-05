@@ -5,8 +5,11 @@ var conf = require('./config.js');
 var dbParams = conf.get('db');
 var db = require('./db.js');
 var mysql = require('mysql');
+var bodyParser = require('body-parser');
 
-var productController = require('./controllers/order.ctrl.js');
+var ordersController = require('./controllers/order.ctrl.js');
+var allosController = require('./controllers/allo.ctrl');
+var specificationController = require('./controllers/specification.ctrl.js');
 
 // Add headers
 app.use(function (req, res, next) {
@@ -28,8 +31,13 @@ app.use(function (req, res, next) {
     next();
 });
 
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true, limit: '100mb' }));
+app.use(bodyParser.json());
+
 // all of our routes will be prefixed with /api
-app.use('/api', [productController]);
+app.use('/api', [ordersController, allosController, specificationController]);
 
 function dbConnection() {
 

@@ -19,7 +19,28 @@
   padding: 0;
   border: 0;
 }
+.padding-top-10 {
+  padding-top: 10px;
+}
 
 .background {
   background-color: #272727;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+.btn-checkbox {
+  font-size: 0.600rem;
+  padding: 0.125rem 0.25rem;
+}
+
+.red {
+  color: red;
+}
+
+.pointer {
+  cursor: pointer;
 }

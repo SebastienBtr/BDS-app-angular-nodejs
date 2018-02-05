@@ -1,0 +1,56 @@
+<div *ngIf="currentAllo">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+      {{ currentAllo.name }}
+    </button>
+    <br><br/>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div *ngFor="let allo of allos">
+        <a class="dropdown-item pointer" (click)="alloChange(allo.id)">{{ allo.name }}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 offset-sm-3 col-12">
+    <div *ngIf="errorMessage">
+      <div class="alert alert-danger" role="alert">
+        {{errorMessage}}
+      </div>
+    </div>
+    <form (ngSubmit)="register(orderForm.value)" #orderForm="ngForm">
+      <div *ngIf="currentAllo.hasQuantity === 1" class="form-group">
+        <label class="text-white" for="quantity">Quantité</label>
+        <input name="quantity" type="number" class="form-control" id="quantity" required  ngModel>
+      </div>
+      <div *ngIf="currentAllo.hasSpec === 1 && currentSpec">
+        <label class="text-white">{{ currentAllo.specName }}</label>
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle specification" type="button" id="dropdownSpec" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            {{ currentSpec.name }}
+          </button>
+          <br/><br/>
+          <div class="dropdown-menu" aria-labelledby="dropdownSpec">
+            <div *ngFor="let spec of specs">
+              <a class="dropdown-item pointer" (click)="specChange(spec.id)">{{ spec.name }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="text-white" for="name">Nom - Prenom</label>
+        <input name="name" type="text" class="form-control" id="name" required ngModel>
+      </div>
+      <div class="form-group">
+        <label class="text-white" for="address">Chambre/Adresse</label>
+        <input name="address" type="text" class="form-control" id="address" required ngModel>
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-primary">Valider</button>
+      </div>
+    </form>
+  </div>
+
+</div>
+

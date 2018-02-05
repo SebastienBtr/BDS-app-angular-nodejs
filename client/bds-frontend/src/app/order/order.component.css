@@ -1,0 +1,30 @@
+.picture {
+  width: 100%;
+  position: relative;
+  filter: brightness(80%);
+}
+.picture:hover{
+  filter: brightness(100%);
+  transition: filter 0.5s;
+  cursor:pointer;
+}
+.titre{
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+  padding: 5px 10px 5px 10px;
+  word-break: break-all;
+  background-color: rgba(0,0,0,.5);
+}
+
+.allo {
+  box-shadow: 5px 5px 20px 2px rgba(0, 0, 0, 0.30);
+}
+
+.specification {
+  width: 100%;
+  text-align: left;
+  border-color: #CDD3D9;
+  color : black;
+}
